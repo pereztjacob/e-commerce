@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from './promiseMiddleware';
 import { loading, error } from '../components/app/error-loading/reducers';
-import { auth } from '../components/forms/reducers';
+import { auth } from '../components/auth/reducers';
 import { user } from '../components/app/reducers';
 
 const reducer = combineReducers({

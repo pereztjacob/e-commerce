@@ -17,7 +17,7 @@ class Signup extends PureComponent {
       name: name.value,
       email: email.value,
       password: password.value,
-      cart: [{ name: 'placeholder', price: '$2' }]
+      cart: []
     })
       .then(() => {
         history.push('/'); // Return user to home page after signing up

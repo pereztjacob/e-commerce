@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeError } from '../actions';
-import './error.css';
 
 class Error extends Component {
 

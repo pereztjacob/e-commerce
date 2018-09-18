@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Signup from '../forms/Signup';
-import Signin from '../forms/Signin';
-import Header from './header/Header';
-import Footer from './footer/Footer';
-import UserDetail from '../user/UserDetail';
-import EditUser from '../user/EditUser';
-import UserCart from '../user/UserCart';
+import Signup from '../auth/Signup';
+import Signin from '../auth/Signin';
+import Header from './Header';
+import Footer from './Footer';
+import UserCart from '../cart/UserCart';
 import Shop from '../shop/Shop';
 import { setUserToState, loadUser } from './actions';
 
 class App extends Component {
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let auth = null;
     if(localStorage.getItem('name')) {
       auth = {};
@@ -33,8 +31,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/auth/signup" component={Signup}/>
               <Route exact path="/auth/signin" component={Signin}/>
-              <Route exact path="/users/:id" component={UserDetail}/>
-              <Route exact path="/edituser" component={EditUser}/>
               <Route exact path="/users/:id/Cart" component={UserCart}/>
               <Route exact path="/" component={Shop}/>
             </Switch>

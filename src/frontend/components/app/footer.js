@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import '../app.css';
 
 export default class Footer extends Component {
-
   render() { 
     return (
       <footer role="contentinfo" id="footer">

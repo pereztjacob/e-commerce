@@ -1,6 +1,6 @@
-import { SIGN_IN } from '../forms/reducers';
+import { SIGN_IN } from '../auth/reducers';
 import { LOAD_USER } from './reducers';
-import projectsApi from '../../services/projectsApi';
+import projectsApi from '../../services/api';
 import { REMOVE_ERROR } from './error-loading/reducers';
 
 export const setUserToState = auth => (

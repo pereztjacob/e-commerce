@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signOut } from '../../forms/actions';
-import '../app.css';
+import { signOut } from '../auth/actions';
 
 class Header extends Component {
 
@@ -26,7 +25,6 @@ class Header extends Component {
             <Link to="/" className="no-line"><h1 className="logo">Shop</h1></Link>
             <div>
               <nav id="main-menu">
-                <Link to="/" className="no-line1"><h1 className="mobile-logo">Shop</h1></Link>
                 <section className="header">
                   {
                     state.auth
