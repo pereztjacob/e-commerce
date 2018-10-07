@@ -26,6 +26,9 @@ class UserCart extends Component {
       if(cart.length === 1){
         const total = costs[0] * parseInt(cart[0].quantity);
         return total;
+      } else if(cart.length === 0){
+        const total = 0;
+        return total;
       } else {
         const total = costs.reduce(sum);
         return total;
