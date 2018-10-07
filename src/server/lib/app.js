@@ -1,11 +1,9 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const morgan = require('morgan');
-require('./models/register-plugins');
-
-const auth = require('./routes/auth');
+import morgan from 'morgan';
+import auth from './routes/auth';
 import users  from './routes/users';
-const payment = require('./routes/payment');
+import payment from './routes/payment';
 
 app.use(express.json());
 app.use(morgan('dev'));

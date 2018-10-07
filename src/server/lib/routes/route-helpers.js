@@ -1,4 +1,4 @@
-const respond = asyncFn => {
+export const respond = asyncFn => {
   return (req, res, next) => {
 
     asyncFn(req)
@@ -16,8 +16,4 @@ const respond = asyncFn => {
       })
       .catch(next);
   };
-};
-
-module.exports = {
-  respond
 };

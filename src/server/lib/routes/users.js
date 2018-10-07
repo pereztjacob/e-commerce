@@ -1,8 +1,9 @@
-const router = require('express').Router();
-const User = require('../models/User');
-const createEnsureAuth = require('../util/ensure-auth');
-const { updateOptions } = require('../util/mongoose-helpers');
+import express from 'express';
+import { User } from '../models/User';
+import { createEnsureAuth } from '../util/ensure-auth';
+import { updateOptions } from '../util/mongoose-helpers';
 
+const router = express.Router();
 const ensureAuth = createEnsureAuth();
 
 export default router

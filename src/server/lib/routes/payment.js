@@ -1,8 +1,10 @@
-const router = require('express').Router();
-const stripe = require('../../constants/stripe');
+import express from 'express';
+import stripe from '../../constants/stripe';
 
-module.exports = router
+let router = express.Router();
 
+
+export default router
   .post('/charge', async(req, res, next) => {
     try {
       let { status } = await stripe.charges.create({

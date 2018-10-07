@@ -1,8 +1,7 @@
 /* eslint no-console: off */
-const http = require('http');
-//const app = require('./lib/app');
-import app from "./lib/app";
-const connect = require('./lib/connect');
+import http from 'http';
+import app from './lib/app';
+import connect from './lib/connect';
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,13 +14,13 @@ let currentApp = app;
 const server = http.createServer(currentApp);
 
 if(module.hot) {
-  module.hot.accept("./lib/app", () => {
-    server.removeListener("request", currentApp);
+  module.hot.accept('./lib/app', () => {
+    server.removeListener('request', currentApp);
     console.log(currentApp === app);
     currentApp = app;
     console.log(currentApp === app);
     
-    server.on("request", currentApp);
+    server.on('request', currentApp);
 
   });
 }

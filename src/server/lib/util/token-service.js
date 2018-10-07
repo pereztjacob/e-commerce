@@ -1,16 +1,14 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 const APP_SECRET = process.env.APP_SECRET || 'cardinals';
 
-module.exports = {
-  sign(user) {
-    const payload = {
-      id: user._id,
-      roles: user.roles 
-    };
+export const sign = (user) => {
+  const payload = {
+    id: user._id,
+    roles: user.roles 
+  };
+  return jwt.sign(payload, APP_SECRET);
+};
 
-    return jwt.sign(payload, APP_SECRET);
-  },
-  verify(token) {
-    return jwt.verify(token, APP_SECRET);
-  }
+export const verify = (token) => {
+  return jwt.verify(token, APP_SECRET);
 };

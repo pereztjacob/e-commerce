@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const { Schema } = mongoose;
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 
 const schema = new Schema({
   name: { 
@@ -29,4 +29,7 @@ schema.methods = {
   }
 };
 
-module.exports = mongoose.model('User', schema);
+const User = mongoose.model('User', schema);
+export { User };
+
+// export default mongoose.model('User', schema);

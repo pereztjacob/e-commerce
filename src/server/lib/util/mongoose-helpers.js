@@ -1,6 +1,4 @@
-module.exports = {
-  updateOptions: {
-    new: true,
-    runValidators: true
-  }
+export const updateOptions = {
+  new: true,
+  runValidators: true
 };

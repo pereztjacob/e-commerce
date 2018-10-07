@@ -1,11 +1,11 @@
-const tokenService = require('./token-service');
+import { verify } from './token-service';
 
-module.exports = function() {
+export const createEnsureAuth = () => {
   return (req, res, next) => {
     const token = req.get('Authorization');
     try {
       if(!token) return next({ status: 400, error: 'No token found' });
-      const payload = tokenService.verify(token);
+      const payload = verify(token);
       req.reviewer = payload;
       next();
     }
@@ -16,4 +16,4 @@ module.exports = function() {
       });
     }
   };
-};
+}

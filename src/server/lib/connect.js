@@ -1,7 +1,7 @@
 /* eslint no-console: "off" */
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-module.exports = function(dbUri){
+export default function(dbUri){
 
   const promise = mongoose.connect(dbUri);
 
@@ -25,4 +25,4 @@ module.exports = function(dbUri){
   });
 
   return promise;
-};
+}

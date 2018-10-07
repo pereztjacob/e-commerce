@@ -1,8 +1,10 @@
-const router = require('express').Router();
-const { respond } = require('./route-helpers');
-const { sign } = require('../util/token-service');
-const User = require('../models/User');
-const createEnsureAuth = require('../util/ensure-auth');
+import express from 'express';
+import { respond } from './route-helpers';
+import { sign } from '../util/token-service';
+import { User } from '../models/User';
+import { createEnsureAuth } from '../util/ensure-auth';
+
+const router = express.Router();
 
 const hasEmailAndPassword = ({ body }, res, next) => {
   const { email, password } = body;
@@ -15,7 +17,7 @@ const hasEmailAndPassword = ({ body }, res, next) => {
   next();
 };
 
-module.exports = router
+export default router
 
   .get('/verify', createEnsureAuth(), respond(
     () => Promise.resolve({ verified: true })
@@ -27,14 +29,11 @@ module.exports = router
       const { email, password } = body;
       delete body.password;
 
-      return User.exists({ email })
-        .then(exists => {
-          if(exists) {
-            throw {
-              status: 400,
-              error: 'Email exists'
-            };
-          }
+      console.log(User);
+
+      return User.findOne({ email })
+        .then(res => {
+          console.log(res);
           const user = new User(body);
           user.generateHash(password);
           return user.save();
@@ -45,12 +44,11 @@ module.exports = router
             token: sign(user),
             _id: user._id,
             name: user.name,
-            email: email,
+            email: user.email,
             cart: user.cart
           };
         });
-    }
-  ))
+    }))
 
   .post('/signin', hasEmailAndPassword, respond(
     ({ body }) => {
