@@ -7,7 +7,7 @@ import store from './frontend/store/store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App prestate={window.__PRELOADED_STATE__}/>
   </Provider>,
   document.getElementById('root')
 );
