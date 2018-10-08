@@ -1,39 +1,33 @@
-import { renderToString } from 'react-dom/server';
 import React from 'react';
-import { /*matchPath,*/StaticRouter } from 'react-router-dom';
-
-// import auth from './auth';
-// import users from './users';
-import loadUser from '../../../frontend/services/api';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
+import express from 'express';
 import renderFullPage from './renderFullPage';
-import App from '../app';
+import { Provider } from 'react-redux';
+import App from '../../../frontend/components/app/App';
+import store from './../../../frontend/store/store';
 
-export default function router(req, res) {
-  // const matchAuth = auth.reduce((acc, route) => matchPath(req.url, { path: route, exact: true }) || acc, null);
-  // const matchUser = user.reduce((acc, route) => matchPath(req.url, { path: route, exact: true }) || acc, null);
+const router = express.Router();
 
-  // if(!match) {
-  //   res.status(404).send('page not found');
-  //   return;
-  // }
+export default router
 
-  const id = null;
-
-  return loadUser(id)
-    .then(resp => {
-      
-      // const pokemon = { list: resp.data.pokemon };
-      console.log(resp);
-
-      const context = {};
-
-      const html = renderToString(
+  .get('/', (req, res) => {
+    const context = {};
+    let obj = { info: renderToString(
+      <Provider store={store}>
         <StaticRouter context={context} location={req.url}>
           <App/>
         </StaticRouter>
-      );
+      </Provider>
+    ) };
+    res.json(obj);
+  })
 
-      res.status(200).send(renderFullPage(html));
-    })
-    .catch(err => res.status(404).send(`${err}: ERRERRRORERERROR`));
-}
+  .get('/test', (req, res) => {
+    const html = renderToString(
+      <StaticRouter>
+        <App/>
+      </StaticRouter>
+    );
+    res.json(renderFullPage(html));
+  });
