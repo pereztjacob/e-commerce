@@ -9,11 +9,16 @@ class Shop extends Component {
     if(this.props.auth){
       this.props.loadUser(this.props.auth._id);
 
-      if(localStorage.getItem(name)){
-        null;
+
+      if(typeof window !== 'undefined'){
+        if(localStorage.getItem(name)){
+          null;
+        } else {
+          localStorage.setItem('name', this.props.auth.name);
+          localStorage.setItem('_id', this.props.auth._id);
+        }
       } else {
-        localStorage.setItem('name', this.props.auth.name);
-        localStorage.setItem('_id', this.props.auth._id);
+        f => f;
       }
     }
   }

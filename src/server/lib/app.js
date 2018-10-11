@@ -11,17 +11,23 @@ app.use(morgan('dev'));
 
 app.use(express.static('public'));
 
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
 app.use('/api/routerT', router);
 app.use('/api/auth', auth);
 app.use('/api/users', users);
-// app.use('/api/payment/charge', (req, res) => res.send('string'));
 app.use('/api/payment', payment);
 
 app.use((req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-app.use((err, req, res/*, next*/)=>{
+
+app.use((err, req, res)=>{
   return res.status(err.status || 500).json({
     error: err.message
   });

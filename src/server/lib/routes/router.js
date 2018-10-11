@@ -20,7 +20,7 @@ export default router
         </StaticRouter>
       </Provider>
     ) };
-    res.json(obj);
+    res.send(renderFullPage(obj));
   })
 
   .get('/test', (req, res) => {

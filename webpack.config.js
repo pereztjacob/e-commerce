@@ -22,7 +22,14 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
-    new HtmlPlugin({ template: './src/index.html' }) 
+    new HtmlPlugin({
+      template: './src/index.ejs',
+      // templateParameters: {
+        // app: '<%- app %>',
+        // title:'<%= title %>'
+      // },
+      filename: 'index.ejs'
+    }),
   ],
   module: {
     rules: [
