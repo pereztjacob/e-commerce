@@ -1,5 +1,5 @@
 /* eslint-env node */
-export default {
+module.exports = {
   plugins: [
     require('postcss-import'),
     require('precss'),
