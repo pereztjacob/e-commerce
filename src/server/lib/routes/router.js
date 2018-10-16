@@ -20,6 +20,7 @@ export default router
         </StaticRouter>
       </Provider>
     ) };
+    console.log(obj.info);
     res.send(renderFullPage(obj));
   })
 
