@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { addToCartAction } from './actions';
 import { loadUser } from '../app/actions';
+import ItemModal from './itemModal';
 
 class ShopItem extends Component {
 
@@ -34,18 +35,10 @@ class ShopItem extends Component {
 
     return (
       <Fragment>
-        <div>
+        <div id="card">
 
-          <p>{name}</p>
-          <p>{price}</p>
-          <p>{description}</p>
-
-          <label>
-            <p>Quantity:</p>
-            <input name="quantity" defaultValue="1" id={'quantity-counter' + name}/>
-          </label>
-
-          {button}
+          <img src="#"/>
+          <ItemModal name={name} price={price} description={description} id={id}/>
 
         </div>
       </Fragment>

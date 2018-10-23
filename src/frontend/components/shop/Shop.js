@@ -29,7 +29,7 @@ class Shop extends Component {
     this.props.auth ? _id = this.props.auth : null;
     let authUser = null; //eslint-disable-line
 
-    const ShopItems = [{ 'name':'shirt', 'price':'$20', 'imageURL':'../../assets/shirt.jpg', 'description':'A stylish shirt!!' }, { 'name':'pants', 'price':'$40', 'imageURL':'pants.jpg', 'description':'Some stylish pants!!' }];
+    const ShopItems = [{ 'name':'shirt', 'price':'$20', 'imageURL':'../../assets/shirt.jpg', 'description':'A stylish shirt!!' }, { 'name':'pants', 'price':'$40', 'imageURL':'pants.jpg', 'description':'Some stylish pants!!' }, { 'name': 'hat', 'price': '$1', 'imageURL': '#', 'description': 'a hattt' }, { 'name': 'product', 'price': '$10', 'imageURL': '#', 'description': 'heres a product' }];
 
     if(this.props.auth) {
       authUser = _id;
@@ -37,6 +37,7 @@ class Shop extends Component {
 
     return (
       <Fragment>
+        <div id='backdrop'>.</div>
         <ul>
           <li>
             {ShopItems.map((item, index) => <ShopItem key={index} data={item} id={_id}/>)}
