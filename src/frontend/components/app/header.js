@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../auth/actions';
+import ModalExample from './modal';
 
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Navbar, Nav } from 'react-bootstrap';
 
 class Header extends Component {
 
@@ -27,33 +28,19 @@ class Header extends Component {
 
             <Grid fluid>
               <Row>
-                <Col lg={6} md={6} sm={6} xs={6}>
-                  <Link to="/"><h1>Shop</h1></Link>
-                </Col>
-                <Col lg={6} md={6} sm={6} xs={6}>
-                  <div>
-                    <nav>
-                      <section>
-                        {
-                          state.auth
-                            ? <div>
-                              <li><Button className="logout-button" onClick={this.handleLogOut}>Log out</Button></li>
-                              <li><Link to={`users/${state.auth._id}/Cart`}>Cart</Link></li>
-                            </div>
-                            :
-                            <Fragment>
-                              <li><Link to={{ 
-                                pathname: '/auth/signin', 
-                              }}>Sign In</Link></li>
-                              <li><Link to={{ 
-                                pathname: '/auth/signup', 
-                              }}>Sign Up</Link></li>
-                            </Fragment>
-                        }
-                      </section>
-                    </nav>
-                  </div>
-                </Col>
+                <Navbar inverse>
+                  <Col lg={4} md={4} sm={4} xs={4}>
+                    <Navbar.Header>
+                      <Link to="/"><h1>Shop</h1></Link>
+                    </Navbar.Header>
+                  </Col>
+                  <Col lg={4} md={4} sm={4} xs={4}> </Col>
+                  <Col lg={4} md={4} sm={4} xs={4} id="modal">
+                    <Nav>
+                      <ModalExample/>
+                    </Nav>
+                  </Col>
+                </Navbar>
               </Row>
             </Grid>
 
