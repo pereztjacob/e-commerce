@@ -32,3 +32,5 @@ export default router
     );
     res.json(renderFullPage(html));
   });
+
+  // TEMPLATE PARAMETERS

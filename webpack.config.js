@@ -23,9 +23,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin({
-      templateParameters: {
-        app: "<%- app %>"
-      },
       template: './src/index.html',
       filename: 'index.html'
     }),

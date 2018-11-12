@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Image } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { signOut } from '../auth/actions';
 import { Link } from 'react-router-dom';
+import burger from '../../../styles/assets/list-menu.png';
 
 
 class ModalExample extends Component {
@@ -38,8 +39,8 @@ class ModalExample extends Component {
 
     return (
       <div>
-        <button onClick={this.handleShow}>
-          <img src="../../../styles/assets/list-menu.png"/>
+        <button onClick={this.handleShow} id='burger-button'>
+          <Image src={burger} id='burger' responsive/>
         </button>
 
         <Modal show={this.state.show} onHide={this.handleClose}>

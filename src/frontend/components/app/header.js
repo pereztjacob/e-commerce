@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { signOut } from '../auth/actions';
 import ModalExample from './modal';
 
-import { Grid, Row, Col, Navbar, Nav } from 'react-bootstrap';
+import { Grid, Row, Col, Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class Header extends Component {
 
@@ -29,15 +29,16 @@ class Header extends Component {
             <Grid fluid>
               <Row>
                 <Navbar inverse>
-                  <Col lg={4} md={4} sm={4} xs={4}>
-                    <Navbar.Header>
+                  <Col lg={4} md={4} sm={4} xs={4} xsOffset={4} id="logo">
+                    <Navbar.Header id="nav-header">
                       <Link to="/"><h1>Shop</h1></Link>
                     </Navbar.Header>
                   </Col>
-                  <Col lg={4} md={4} sm={4} xs={4}> </Col>
                   <Col lg={4} md={4} sm={4} xs={4} id="modal">
-                    <Nav>
-                      <ModalExample/>
+                    <Nav pullRight>
+                      <NavItem>
+                        <ModalExample/>
+                      </NavItem>
                     </Nav>
                   </Col>
                 </Navbar>
