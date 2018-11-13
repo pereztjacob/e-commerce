@@ -28,7 +28,7 @@ class Header extends Component {
 
             <Grid fluid>
               <Row>
-                <Navbar inverse>
+                <Navbar>
                   <Col lg={4} md={4} sm={4} xs={4} xsOffset={4} id="logo">
                     <Navbar.Header id="nav-header">
                       <Link to="/"><h1>Shop</h1></Link>

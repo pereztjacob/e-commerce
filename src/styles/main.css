@@ -35,20 +35,84 @@ body{
     #backdrop{
       height: 300px;
       width: 100%;
-      background-color: rgb(0, 66, 0);
+      background-color: rgb(255, 255, 255);
       margin-top: -20px; 
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+    #tag-text{
+      position: absolute;
+      padding: 100px 0;
+      width: 100%;
+      text-align: center;
+      h1{
+        font-size: 50px;
+        color: black;
+      }
     }
     ul{
       li{
         div#card{
-          background-color: rgb(12, 12, 12);
-          width: 50%;
+          background-color: beige;
           display: inline-block;
           border: 1px solid beige;
           height: 400px;
+          img{
+            width: 100%;
+          }
+          #modal-button-container{
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            margin-top: -21px;
+          }
+          #modal-button{
+            background-color: white;
+            color: black;
+            border-radius: 2px 2px 0 0;
+          }
         }
       }
     }
   }
 
+}
+
+@media screen and (min-width: 480px) {
+  div#card{
+    width: 50% !important;
+  }
+  .vector{
+    width: 50% !important;
+  }
+  #tag-text{
+    padding: 85px 0 !important;
+    h1{
+      font-size: 65px !important;
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  div#card{
+    width: 33.3% !important;
+  }
+  .vector{
+    width: 33.3% !important;
+  }
+  #tag-text{
+    padding: 80px 0 !important;
+    h1{
+      font-size: 80px !important;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  div#card{
+    width: 25% !important;
+  }
+  .vector{
+    width: 25% !important;
+  }
 }

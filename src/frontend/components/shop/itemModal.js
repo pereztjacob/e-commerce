@@ -53,29 +53,31 @@ class ItemModal extends Component {
     }
 
     return (
-      <div>
-        <button onClick={this.handleShow}>
-          Shop this look
-        </button>
+      <div id='modal-button-container'>
+        <div>
+          <button onClick={this.handleShow} id='modal-button'>
+          ^ Shop this look ^
+          </button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>{name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Fragment>
-              <p>{price}</p>
-              <p>{description}</p>
+          <Modal show={this.state.show} onHide={this.handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>{name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Fragment>
+                <p>{price}</p>
+                <p>{description}</p>
 
-              <label>
-                <p>Quantity:</p>
-                <input name="quantity" defaultValue="1" id={'quantity-counter' + name}/>
-              </label>
+                <label>
+                  <p>Quantity:</p>
+                  <input name="quantity" defaultValue="1" id={'quantity-counter' + name}/>
+                </label>
 
-              {button}
-            </Fragment>
-          </Modal.Body>
-        </Modal>
+                {button}
+              </Fragment>
+            </Modal.Body>
+          </Modal>
+        </div>
       </div>
     );
   }

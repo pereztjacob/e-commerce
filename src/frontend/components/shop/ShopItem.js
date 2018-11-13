@@ -12,8 +12,17 @@ class ShopItem extends Component {
     function displayLoginPrompt(){
       alert('Must login first!');
     }
+    
+    function importAll(r) {
+      let images = {};
+      r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+      return images;
+    }
 
-    const { name, price, description, /*imageURL,*/ } = this.props.data;
+    const images = importAll(require.context('../../../styles/assets', false, /\.(png|jpe?g|svg)$/));
+    console.log(images);
+
+    const { name, price, description, imageName } = this.props.data;
     const { id } = this.props;
 
     let button;
@@ -38,7 +47,8 @@ class ShopItem extends Component {
       <Fragment>
         <div id="card">
 
-          <img src='#'/>
+          <img src={images[imageName]} id='itemImage'/>
+
           <ItemModal name={name} price={price} description={description} id={id}/>
 
         </div>
