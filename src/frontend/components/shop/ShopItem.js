@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { addToCartAction } from './actions';
 import { loadUser } from '../app/actions';
 import ItemModal from './itemModal';
-import image from '../../../styles/assets/list-menu.png';
 
 class ShopItem extends Component {
 
@@ -20,7 +19,6 @@ class ShopItem extends Component {
     }
 
     const images = importAll(require.context('../../../styles/assets', false, /\.(png|jpe?g|svg)$/));
-    console.log(images);
 
     const { name, price, description, imageName } = this.props.data;
     const { id } = this.props;
@@ -47,7 +45,9 @@ class ShopItem extends Component {
       <Fragment>
         <div id="card">
 
-          <img src={images[imageName]} id='itemImage'/>
+          <div id='layer'>
+            <img src={images[imageName]} id='itemImage'/>
+          </div>
 
           <ItemModal name={name} price={price} description={description} id={id}/>
 

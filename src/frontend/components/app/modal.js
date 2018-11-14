@@ -43,26 +43,34 @@ class ModalExample extends Component {
           <Image src={burger} id='burger' responsive/>
         </button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={this.state.show} onHide={this.handleClose} id='nav-modal'>
           <Modal.Header closeButton>
             <Modal.Title>Menu</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             { state.auth ?
               <Fragment>
-                <li><button className="logout-button" onClick={this.handleLogOut}>Log out</button></li>
-                <li><Link to={`users/${state.auth._id}/Cart`}>Cart</Link></li>
+                <li className='menu-logx' onClick={this.handleClose}><button className="logout-button" onClick={this.handleLogOut}>Log out</button></li>
+                <li className='menu-logx' onClick={this.handleClose}><Link to={`users/${state.auth._id}/Cart`}>Cart</Link></li>
               </Fragment>
                 :
               <Fragment>
-                <li><Link to={{ 
+                <li className='menu-logx' onClick={this.handleClose}><Link to={{ 
                   pathname: '/auth/signin', 
                 }}>Sign In</Link></li>
-                <li><Link to={{ 
+                <li className='menu-logx' onClick={this.handleClose}><Link to={{ 
                   pathname: '/auth/signup', 
                 }}>Sign Up</Link></li>
               </Fragment>
             }
+            <ul id='menu-options'>
+              <li onClick={this.handleClose}>Mens</li>
+              <li onClick={this.handleClose}>Womens</li>
+              <li onClick={this.handleClose}>Kids</li>
+              <li onClick={this.handleClose}>About</li>
+              <li onClick={this.handleClose}>Contact</li>
+            </ul>
+            <div id='space-maker'>.</div>
           </Modal.Body>
         </Modal>
       </div>

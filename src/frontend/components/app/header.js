@@ -31,13 +31,13 @@ class Header extends Component {
                 <Navbar>
                   <Col lg={4} md={4} sm={4} xs={4} xsOffset={4} id="logo">
                     <Navbar.Header id="nav-header">
-                      <Link to="/"><h1>Shop</h1></Link>
+                      <Link to="/"><h1 id='title'>Shop</h1></Link>
                     </Navbar.Header>
                   </Col>
                   <Col lg={4} md={4} sm={4} xs={4} id="modal">
                     <Nav pullRight>
                       <NavItem>
-                        <ModalExample/>
+                        <ModalExample id='nav-modal'/>
                       </NavItem>
                     </Nav>
                   </Col>

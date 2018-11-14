@@ -41,6 +41,7 @@ class ItemModal extends Component {
 
         const quantity = document.getElementById('quantity-counter' + name).value;
         const cart = { name: name, price: price, quantity: quantity };
+        this.handleClose();
 
         addToCartAction(cart, id);
 
@@ -49,7 +50,10 @@ class ItemModal extends Component {
       }}>Add to Cart</button>;
 
     } else {
-      button = <button onClick={() => displayLoginPrompt()}>Add to Cart</button>;
+      button = <button onClick={() => {
+        this.handleClose();
+        displayLoginPrompt();
+      }}>Add to Cart</button>;
     }
 
     return (
@@ -59,13 +63,13 @@ class ItemModal extends Component {
           ^ Shop this look ^
           </button>
 
-          <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal show={this.state.show} onHide={this.handleClose} id='item-modal'>
             <Modal.Header closeButton>
               <Modal.Title>{name}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <Fragment>
-                <p>{price}</p>
+                <p id='price'>{price}</p>
                 <p>{description}</p>
 
                 <label>
