@@ -20,6 +20,7 @@ export default router
         </StaticRouter>
       </Provider>
     ) };
+    console.log(obj.info);
     res.send(renderFullPage(obj));
   })
 
@@ -31,3 +32,5 @@ export default router
     );
     res.json(renderFullPage(html));
   });
+
+  // TEMPLATE PARAMETERS

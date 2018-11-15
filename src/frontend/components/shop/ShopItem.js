@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { addToCartAction } from './actions';
 import { loadUser } from '../app/actions';
+import ItemModal from './itemModal';
 
 class ShopItem extends Component {
 
@@ -10,8 +11,16 @@ class ShopItem extends Component {
     function displayLoginPrompt(){
       alert('Must login first!');
     }
+    
+    function importAll(r) {
+      let images = {};
+      r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+      return images;
+    }
 
-    const { name, price, description, /*imageURL,*/ } = this.props.data;
+    const images = importAll(require.context('../../../styles/assets', false, /\.(png|jpe?g|svg)$/));
+
+    const { name, price, description, imageName } = this.props.data;
     const { id } = this.props;
 
     let button;
@@ -34,18 +43,13 @@ class ShopItem extends Component {
 
     return (
       <Fragment>
-        <div>
+        <div id="card">
 
-          <p>{name}</p>
-          <p>{price}</p>
-          <p>{description}</p>
+          <div id='layer'>
+            <img src={images[imageName]} id='itemImage'/>
+          </div>
 
-          <label>
-            <p>Quantity:</p>
-            <input name="quantity" defaultValue="1" id={'quantity-counter' + name}/>
-          </label>
-
-          {button}
+          <ItemModal name={name} price={price} description={description} id={id}/>
 
         </div>
       </Fragment>

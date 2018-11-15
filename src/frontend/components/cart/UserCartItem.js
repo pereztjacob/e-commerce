@@ -10,8 +10,8 @@ class Item extends Component {
     return (
       <Fragment>
         <tr>
-          <th>{name}</th>
-          <th>{price}</th>
+          <th id='cart-item-name'>{name}</th>
+          <th id='cart-item-price'>{price}</th>
           <th>{quantity}</th>
         </tr>
       </Fragment>

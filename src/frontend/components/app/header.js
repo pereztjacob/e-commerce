@@ -1,7 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../auth/actions';
+import ModalExample from './modal';
+
+import { Grid, Row, Col, Navbar, Nav, NavItem } from 'react-bootstrap';
 
 class Header extends Component {
 
@@ -20,31 +23,28 @@ class Header extends Component {
       const { state } = this.props;
 
       return (
-        <header role="banner" id="header">
-          <section className="head-container maxwidth-wrap">
-            <Link to="/" className="no-line"><h1 className="logo">Shop</h1></Link>
-            <div>
-              <nav id="main-menu">
-                <section className="header">
-                  {
-                    state.auth
-                      ? <div>
-                        <li><button className="logout-button" onClick={this.handleLogOut}>Log out</button></li>
-                        <li><Link to={`users/${state.auth._id}/Cart`}>Cart</Link></li>
-                      </div>
-                      :
-                      <Fragment>
-                        <li><Link to={{ 
-                          pathname: '/auth/signin', 
-                        }}>Sign In</Link></li>
-                        <li><Link to={{ 
-                          pathname: '/auth/signup', 
-                        }}>Sign Up</Link></li>
-                      </Fragment>
-                  }
-                </section>
-              </nav>
-            </div>
+        <header>
+          <section>
+
+            <Grid fluid>
+              <Row>
+                <Navbar>
+                  <Col lg={4} md={4} sm={4} xs={4} xsOffset={4} id="logo">
+                    <Navbar.Header id="nav-header">
+                      <Link to="/"><h1 id='title'>Shop</h1></Link>
+                    </Navbar.Header>
+                  </Col>
+                  <Col lg={4} md={4} sm={4} xs={4} id="modal">
+                    <Nav pullRight>
+                      <NavItem>
+                        <ModalExample id='nav-modal'/>
+                      </NavItem>
+                    </Nav>
+                  </Col>
+                </Navbar>
+              </Row>
+            </Grid>
+
           </section> 
         </header>
       );

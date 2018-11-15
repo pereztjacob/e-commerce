@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { loadUser } from '../app/actions';
 import ShopItem from './ShopItem';
+import vector from '../../../styles/assets/vector.jpg';
 
 class Shop extends Component {
 
@@ -29,7 +30,7 @@ class Shop extends Component {
     this.props.auth ? _id = this.props.auth : null;
     let authUser = null; //eslint-disable-line
 
-    const ShopItems = [{ 'name':'shirt', 'price':'$20', 'imageURL':'../../assets/shirt.jpg', 'description':'A stylish shirt!!' }, { 'name':'pants', 'price':'$40', 'imageURL':'pants.jpg', 'description':'Some stylish pants!!' }];
+    const ShopItems = [{ 'name':'Voyager Jacket', 'price':'$200', 'imageName':'mens-jacket-1.jpg', 'description':'Lorem Ipsum Damel' }, { 'name':'Dracula Jacket', 'price':'$300', 'imageName':'mens-jacket-2.jpg', 'description':'Lorem Ipsum Damel' }, { 'name': 'Voyager Tee', 'price': '$30', 'imageName': 'mens-tee-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name': 'Flyer Vest', 'price': '$60', 'imageName': 'mens-vest-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name': 'Flyer Hoodie', 'price': '$70', 'imageName': 'mens-hoodie-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name': 'Tacoma Umbrella', 'price': '$20', 'imageName': 'umbrella-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name': 'San Antonio Dress', 'price': '$50', 'imageName': 'womens-dress-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name': 'Seattle Jacket', 'price': '$80', 'imageName': 'womens-jacket-1.jpg', 'description': 'Lorem Ipsum Damel' }, { 'name':'World Pants', 'price':'$100', 'imageName':'womens-pants-1.jpg', 'description':'Lorem Ipsum Damel' }, { 'name':'Miracle Shirt', 'price':'$50', 'imageName':'womens-shirt-1.jpg', 'description':'Lorem Ipsum Damel' }, { 'name':'Premium Shirt', 'price':'$100', 'imageName':'womens-shirt-2.jpg', 'description':'Lorem Ipsum Damel' }, { 'name':'Rocky Suit Jacket', 'price':'$200', 'imageName':'womens-suit-1.jpg', 'description':'Lorem Ipsum Damel' }];
 
     if(this.props.auth) {
       authUser = _id;
@@ -37,6 +38,13 @@ class Shop extends Component {
 
     return (
       <Fragment>
+        <div id='backdrop'>
+          <div id='tag-text'><h1>TOP LOOKS</h1></div>
+          <img className='vector' src={vector}/>
+          <img className='vector' src={vector}/>
+          <img className='vector' src={vector}/>
+          <img className='vector' src={vector}/>
+        </div>
         <ul>
           <li>
             {ShopItems.map((item, index) => <ShopItem key={index} data={item} id={_id}/>)}
