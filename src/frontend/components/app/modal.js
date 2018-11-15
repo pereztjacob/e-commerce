@@ -14,7 +14,6 @@ class ModalExample extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
 
-
     this.state = {
       show: false
     };
@@ -79,8 +78,9 @@ class ModalExample extends Component {
 }
 
 export default connect(
-  state => ({
+  (state, history) => ({
     state: state,
+    history: history
   }),
   { signOut }
 )(ModalExample);

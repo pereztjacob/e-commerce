@@ -143,8 +143,35 @@ body{
         }
       }
     }
+    .form-submit{
+      text-align: center;
+      margin-top: 17vh;
+      font-size: 18px;
+      h4{
+        font-size: 24px;
+      }
+    }
   }
-
+  .checkout{
+    width: 309px;
+    margin: 50px auto;
+    p{
+      width: 309px;
+      text-align: justify;
+    }
+    button{
+      width: 100%;
+    }
+  }
+  table{
+    margin: 0 auto;
+    #cart-item-name{
+      width: 150px;
+    }
+    #cart-item-price{
+      width: 50px;
+    }
+  }
 }
 
 @media screen and (min-width: 480px) {
