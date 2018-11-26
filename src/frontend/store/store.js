@@ -12,11 +12,11 @@ const reducer = combineReducers({
   user,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const composeEnhancers = compose(
-//   (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__ : f => f
-// );
+const composeEnhancers = compose(
+  (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__ : f => f
+);
 
 const store = createStore(
   reducer,

@@ -5,7 +5,7 @@ import ShopItem from './ShopItem';
 import vector from '../../../styles/assets/vector.jpg';
 import ShopItems from './itemsList';
 
-class Shop extends Component {
+class ShopMens extends Component {
 
   UNSAFE_componentWillMount(){
     if(this.props.auth){
@@ -35,24 +35,19 @@ class Shop extends Component {
       authUser = _id;
     }
 
-    const shuffle = array => {
-      var i = array.length, tempV, randI;
-      while(0 !== i) {
-        randI = Math.floor(Math.random() * i);
-        i -= 1;
-        tempV = array[i];
-        array[i] = array[randI];
-        array[randI] = tempV;
+    const mensOnly = item => {
+      console.log(item);
+      if(item.tag === 'm'){
+        return item;
       }
-      return array;
     };
 
-    const shuffledList = shuffle(ShopItems);
+    const MensShop = ShopItems.filter(mensOnly);
 
     return (
       <Fragment>
         <div id='backdrop'>
-          <div id='tag-text'><h1>TOP LOOKS</h1></div>
+          <div id='tag-text'><h1>MENS</h1></div>
           <img className='vector' src={vector}/>
           <img className='vector' src={vector}/>
           <img className='vector' src={vector}/>
@@ -60,7 +55,7 @@ class Shop extends Component {
         </div>
         <ul>
           <li>
-            {shuffledList.map((item, index) => <ShopItem key={index} data={item} id={_id}/>)}
+            {MensShop.map((item, index) => <ShopItem key={index} data={item} id={_id}/>)}
           </li>
         </ul>
       </Fragment>
@@ -74,4 +69,4 @@ export default connect(
     auth: state.auth
   }),
   { loadUser }
-)(Shop);
+)(ShopMens);

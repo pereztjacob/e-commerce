@@ -63,11 +63,9 @@ class ModalExample extends Component {
               </Fragment>
             }
             <ul id='menu-options'>
-              <li onClick={this.handleClose}>Mens</li>
-              <li onClick={this.handleClose}>Womens</li>
-              <li onClick={this.handleClose}>Kids</li>
-              <li onClick={this.handleClose}>About</li>
-              <li onClick={this.handleClose}>Contact</li>
+              <li onClick={this.handleClose}><Link to={`womens`}>Womens</Link></li>
+              <li onClick={this.handleClose}><Link to={`mens`}>Mens</Link></li>
+              <li onClick={this.handleClose}><Link to={`about`}>About</Link></li>
             </ul>
             <div id='space-maker'>.</div>
           </Modal.Body>
