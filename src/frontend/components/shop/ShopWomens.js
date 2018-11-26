@@ -36,7 +36,6 @@ class ShopWomens extends Component {
     }
 
     const womensOnly = item => {
-      console.log(item);
       if(item.tag === 'w'){
         return item;
       }

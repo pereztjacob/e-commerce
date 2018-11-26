@@ -12,4 +12,4 @@ const ShopItems = [
   { 'tag': 'w', 'name':'Premium Shirt', 'price':'$100', 'imageName':'womens-shirt-2.jpg', 'description':'Lorem Ipsum Damel' }, 
   { 'tag': 'w', 'name':'Rocky Suit Jacket', 'price':'$200', 'imageName':'womens-suit-1.jpg', 'description':'Lorem Ipsum Damel' }
 ];
-export default ShopItems; 
+export default ShopItems;
