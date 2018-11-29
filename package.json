@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/pereztjacob/e-commerce#readme",
   "devDependencies": {
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
