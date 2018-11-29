@@ -112,7 +112,7 @@ body{
       width: 100%;
       text-align: center;
       h1{
-        font-size: 50px;
+        font-size: 60px;
         color: black;
       }
     }
@@ -171,6 +171,9 @@ body{
     #cart-item-price{
       width: 50px;
     }
+  }
+  footer#footer{
+    text-align: center;
   }
 }
 
