@@ -4,8 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { signIn } from './actions';
 import Error from '../app/error-loading/Error';
 
-import { Button } from 'react-bootstrap';
-
 class Signup extends PureComponent {
 
   handleSubmit = event => {

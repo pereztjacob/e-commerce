@@ -175,6 +175,26 @@ body{
   footer#footer{
     text-align: center;
   }
+
+  section.about-page{
+    h1, h3{
+      text-align: center;
+    }
+    ul{
+      list-style-type: none;
+      font-size: 20px;
+      color: black;
+      margin: 0 auto;
+      li{
+        display: inline;
+      }
+      img{
+        width: 50px;
+        border-radius: 5px;
+      }
+    }
+  }
+
 }
 
 @media screen and (min-width: 480px) {

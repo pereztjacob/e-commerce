@@ -7,7 +7,6 @@ import Header from './Header';
 import Footer from './Footer';
 import UserCart from '../cart/UserCart';
 import Shop from '../shop/Shop';
-import About from '../etc/About';
 import ShopMens from '../shop/ShopMens';
 import ShopWomens from '../shop/ShopWomens';
 import { setUserToState, loadUser } from './actions';
@@ -43,7 +42,6 @@ class App extends Component {
                 <Route exact path="/auth/signup" component={Signup}/>
                 <Route exact path="/auth/signin" component={Signin}/>
                 <Route exact path="/users/:id/Cart" component={UserCart}/>
-                <Route exact path="/about" component={About}/>
                 <Route exact path="/mens" component={ShopMens}/>
                 <Route exact path ="/womens" component={ShopWomens}/>
                 <Route exact path="/" component={Shop}/>

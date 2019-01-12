@@ -1,0 +1,68 @@
+/* eslint-env node */
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
+// const NodeTemplatePlugin = require('node-template-plugin')
+
+const path = `${__dirname}/build`;
+
+module.exports = {
+  entry: ['@babel/polyfill', './src/index.js'],
+  output: {
+    path,
+    filename: 'bundle.[hash].js',
+    publicPath: '/'
+  },
+  devServer: {
+    contentBase: './build',
+    historyApiFallback: true,
+    publicPath: '/',
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
+  devtool: 'inline-source-map',
+  plugins: [
+    new CleanWebpackPlugin(`${path}/bundle.*.js`),
+    new HtmlPlugin({
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new NodeTemplatePlugin(outputOptions).apply(childCompiler)
+  ],
+  module: {
+    rules: [
+      {   
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: { 
+              sourceMap: true,
+              importLoaders: 1 
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
+          }
+        ]
+      },
+      {
+        test: /\.(pdf|jpg|png|gif|svg|ico)$/,
+        use: {
+          loader: 'url-loader',
+          options: { limit: 5000 },
+        }
+      }
+    ]
+  }
+};
