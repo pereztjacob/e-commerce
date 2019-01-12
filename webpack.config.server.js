@@ -6,24 +6,24 @@ const webpack = require("webpack");
 
 const path = `${__dirname}/build`;
 
-const startServerPlugin = new StartServerPlugin({ name: 'server.js' });
+//const startServerPlugin = new StartServerPlugin({ name: 'server.js' });
 
 module.exports = {
-  entry: ['@babel/polyfill', 'webpack/hot/poll?1000', './src/server/server.js'],
+  entry: ['@babel/polyfill', './src/server/server.js'],
   output: {
     path,
     filename: 'server.js',
     publicPath: '/'
   },
   target: 'node',
-  watch: true,
+  //watch: true,
   externals: [externals({
     whitelist: ['webpack/hot/poll?1000']
   })],
   plugins: [
     new CleanWebpackPlugin(`${path}/server.js`),
-    startServerPlugin,
-    new webpack.HotModuleReplacementPlugin()
+    /*startServerPlugin,*/
+    //new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     rules: [
